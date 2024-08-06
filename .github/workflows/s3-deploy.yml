@@ -1,0 +1,23 @@
+name: Deploy Website to AWS S3
+
+on:
+  push:
+    branches:
+      - frontend
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-west-2 # 
+
+    - name: Deploy to Amazon S3
+      run: aws s3 sync .C:\Users\andre\OneDrive\Desktop\resume website\.github\workflows\Front End s3://andrew.resume.website --delete
