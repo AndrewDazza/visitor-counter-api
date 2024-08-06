@@ -20,4 +20,4 @@ jobs:
         aws-region: us-west-2 # 
 
     - name: Deploy to Amazon S3
-      run: aws s3 sync .C:\Users\andre\OneDrive\Desktop\resume website\.github\workflows\Front End s3://andrew.resume.website --delete
+      run: aws s3 sync . s3://andrew.resume.website --delete
