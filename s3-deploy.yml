@@ -3,7 +3,7 @@ name: Deploy Website to AWS S3
 on:
   push:
     branches:
-      - master
+      - frontend
 
 jobs:
   deploy:
