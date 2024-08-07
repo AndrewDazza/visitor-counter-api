@@ -463,3 +463,17 @@ a {
     width: 70%;
   }
 }
+
+#visitor_Count {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #3d3e42;
+  color: #9099a0;
+  padding: 8px 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  z-index: 1000;
+}
