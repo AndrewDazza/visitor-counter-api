@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Resume website blog</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Project Summary</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background-color: #3d3e42;
+      color: #9099a0;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.5em;
+    }
+
+    .summary-wrapper {
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 {
+      color: #66cc99;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.8em;
+      margin-top: 20px;
+    }
+
+    h3 {
+      font-size: 1.5em;
+      margin-top: 15px;
+    }
+
+    p, ul {
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      list-style-type: disc;
+    }
+  </style>
+</head>
+<body>
+  <div class="summary-wrapper">
+    <h1>Project Summary</h1>
+    <p>Below is a comprehensive summary of every step taken to create and deploy the static website, focusing on areas where issues were encountered and resolved.</p>
+    <h2>AWS Account Setup</h2>
+    <ul>
+      <li><strong>Create IAM User:</strong> Created an IAM user with admin permissions for daily operations to avoid using the root account.</li>
+    </ul>
+    <h2>Static Website Hosting</h2>
+    <ul>
+      <li><strong>Create S3 Bucket:</strong> Set up an S3 bucket for static website hosting. Uploaded HTML and CSS files to the S3 bucket.</li>
+      <li><strong>Configure S3 Bucket Policy:</strong> Updated the bucket policy to allow public read access. Resolved a 403 Forbidden error by correctly setting the bucket policy.</li>
+    </ul>
+    <h2>HTTPS with CloudFront</h2>
+    <ul>
+      <li><strong>Set Up CloudFront Distribution:</strong> Created a CloudFront distribution to enable HTTPS for the S3 website. Chose the S3 website endpoint for the origin domain. Configured the distribution settings, including SSL/TLS support.</li>
+      <li><strong>Obtain SSL Certificate:</strong> Requested an ACM certificate in the N. Virginia region for the CloudFront distribution. Encountered issues with domain validation, resolved by manually adding CNAME records in Route 53.</li>
+    </ul>
+    <h2>Custom Domain with Route 53</h2>
+    <ul>
+      <li><strong>Register and Set Up Domain:</strong> Registered a custom domain with Route 53. Created a hosted zone and added necessary records. Associated the domain with the CloudFront distribution using Route 53.</li>
+    </ul>
+    <h2>Visitor Counter Implementation</h2>
+    <ul>
+      <li><strong>Lambda Function:</strong> Created a Python Lambda function to handle visitor count. Set up a DynamoDB table to store the visitor count. Encountered issues with IAM permissions and fixed them by attaching appropriate policies.</li>
+      <li><strong>API Gateway:</strong> Configured API Gateway to expose the Lambda function as a REST API. Tested the API using Postman to ensure it returned the correct visitor count.</li>
+    </ul>
+    <h2>Frontend Integration</h2>
+    <ul>
+      <li><strong>Add Visitor Counter to Website:</strong> Updated the HTML and CSS files to display the visitor count. Added JavaScript code to call the API and update the visitor count on page load. Resolved CORS issues by configuring CORS in API Gateway. Fixed an issue with the visitor count displaying "undefined" by ensuring the Lambda function returned the correct JSON response.</li>
+    </ul>
+    <h2>Continuous Deployment</h2>
+    <ul>
+      <li><strong>Set Up GitHub Repository:</strong> Created a GitHub repository for the project. Configured a GitHub Actions workflow to automatically deploy updates to the S3 bucket. Resolved issues with pushing changes to the repository by managing branches and fixing merge conflicts.</li>
+    </ul>
+    <h2>Final Troubleshooting and Validation</h2>
+    <ul>
+      <li><strong>Invalidate CloudFront Cache:</strong> Invalidated CloudFront cache to ensure updated files were served. Verified that the website displayed correctly with the visitor counter working.</li>
+    </ul>
+    <h2>Final word</h2>
+    <ul>
+      <li><strong>In this project, </strong> I built a secure, dynamic website using a variety of AWS resources. I hosted the site on AWS S3 and used Amazon CloudFront to deliver content quickly and securely with SSL/TLS encryption. To keep track of visitors, I set up a counter using AWS Lambda, API Gateway, and DynamoDB. Managing the custom domain through Route 53, I ensured everything pointed to the right place smoothly. My skills in Python, JavaScript, HTML/CSS were certainly put to the test for this, and I used Git and GitHub Actions for continuous deployment, making updates and version control a breeze. Along the way, I tackled challenges like managing permissions, handling CORS issues, clearing caches, and checking code for naming and reference errors, showing I can troubleshoot effectively and understand cloud services and web development.</li>
+    </ul>
+  </div>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
